@@ -28,24 +28,39 @@ class Router
        $uri = $this->getURI(); //get request string;
         foreach ($this->routes as $uriPattern => $path){ //check request in routes.php
             if (preg_match("~$uriPattern~", $uri)){
-                $segments = explode('/', $path);
+    //   version 1.0
+                //                $segments = explode('/', $path);
+//
+//                $controllerName = array_shift($segments) . 'Controller';
+//                $controllerName = ucfirst($controllerName); //uppercasefirst;
+//
+//                $actionName = 'action' . ucfirst(array_shift($segments));
+//                $controllerFile = ROOT . '/controllers' . '/' . $controllerName . '.php';
+//
+//                if (file_exists($controllerFile)) {
+//                    include_once("$controllerFile");
+//                }
+//
+//
+//                $controllerObject = new $controllerName;
+//                $result = $controllerObject->$actionName();
+//                if ($result != null){
+//                    break;
+//                }
+//
 
-                $controllerName = array_shift($segments) . 'Controller';
-                $controllerName = ucfirst($controllerName); //uppercasefirst;
-
-                $actionName = 'action' . ucfirst(array_shift($segments));
-                $controllerFile = ROOT . '/controllers' . '/' . $controllerName . '.php';
-
-                if (file_exists($controllerFile)) {
-                    include_once("$controllerFile");
-                }
+    //version 1.1
 
 
-                $controllerObject = new $controllerName;
-                $result = $controllerObject->$actionName();
-                if ($result != null){
-                    break;
-                }
+                echo '<br>' . 'user input: ' . $uri;
+                echo '<br>' . 'what(pattern) router should search: ' . $uriPattern;
+                echo '<br>' . 'what worked: ' . $path;
+                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+                echo '<br>' . 'what need to create: ' . $internalRoute;
+
+
+
+
 
 
             }
