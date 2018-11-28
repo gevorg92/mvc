@@ -51,17 +51,35 @@ class Router
 
     //version 1.1
 
+    //Getting internal route
 
-                echo '<br>' . 'user input: ' . $uri;
-                echo '<br>' . 'what(pattern) router should search: ' . $uriPattern;
-                echo '<br>' . 'what worked: ' . $path;
+//                echo '<br>' . 'user input: ' . $uri;
+//                echo '<br>' . 'what(pattern) router should search: ' . $uriPattern;
+//                echo '<br>' . 'what worked: ' . $path;
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
-                echo '<br>' . 'what need to create: ' . $internalRoute;
+//                echo '<br>' . 'what need to create: ' . $internalRoute;
+    //Setting controller
+                $segments = explode('/', $internalRoute);
+                $controllerName = array_shift($segments) . 'Controller';
+                $controllerName = ucfirst($controllerName); //uppercasefirst;
 
+     //Setting action
 
-
-
-
+                $actionName = 'action' . ucfirst(array_shift($segments));
+                $controllerFile = ROOT . '/controllers' . '/' . $controllerName . '.php';
+//                echo "<br>controller name: $controllerName";
+//                echo "<br>action name: $actionName <br>";
+                $parameters = $segments;
+//                print_r($parameters);
+    //Calling action
+                if (file_exists($controllerFile)) {
+                    include_once("$controllerFile");
+                }
+                $controllerObject = new $controllerName;
+                $result = call_user_func_array(array($controllerObject, $actionName), $parameters); // send data to array as variables;
+                if($result !=0){
+                    break;
+                }
 
             }
 

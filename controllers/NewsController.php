@@ -11,9 +11,13 @@ class NewsController
 
     }
 
-    public function actionView()
+    public function actionView($var1, $var2, $var3)
     {
-        echo "One page";
+
+
+        echo '<br>' . $var1;
+        echo '<br>' . $var2;
+        echo '<br>' . $var3;
         return true;
 
     }
