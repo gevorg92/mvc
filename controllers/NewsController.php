@@ -11,9 +11,8 @@ class NewsController
         $newsList = array();
         $newsList = News::getNewsList();
         echo '<pre>';
-//        print_r($newsList);
+        print_r($newsList);
         echo '<pre>';
-        echo "actionIndex";
         return true;
 
     }
@@ -30,7 +29,7 @@ class NewsController
 //        echo '<br>' . $var1;
 //        echo '<br>' . $var2;
 //        echo '<br>' . $var3;
-        echo 'actionView';
+//        echo 'actionView';
         return true;
 
     }
