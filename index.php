@@ -18,5 +18,5 @@ require_once(ROOT.'/components/Router.php');
 
 $obj = new Router();
 $obj->run();
-//echo "its alive";
+echo "in.php";
 	
