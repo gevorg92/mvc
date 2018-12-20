@@ -12,7 +12,7 @@ class News
             $password = 'th7codbo7';
             $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
             $newsItem = array();
-            $result = $db->query('SELECT id, title, date, short_content FROM `news` WHERE `id`=' . $id);
+            $result = $db->query('SELECT `id`, `title`, `date`, `short_content` FROM `news` WHERE `id`=' . $id);
             $row=$result->fetch();
             $newsItem['id'] = $row['id'];
             $newsItem['title'] = $row['title'];
@@ -38,6 +38,13 @@ class News
         $dbname = 'test';
         $user  = 'gevorg';
         $password = 'th7codbo7';
+
+//        try{
+//            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+//        } catch(PDOException $e){
+//            echo $e->getMessage();
+//        }
+
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         $newsList = array();
         $result = $db->query('SELECT id, title, date, short_content FROM `news` ORDER BY date DESC LIMIT 10');

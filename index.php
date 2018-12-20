@@ -18,5 +18,5 @@ require_once(ROOT.'/components/Router.php');
 
 $obj = new Router();
 $obj->run();
-echo "ITS A TRAP!!!.php";
+//echo "ITS A TRAP!!! REALLY?";
 	
