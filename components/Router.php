@@ -1,4 +1,4 @@
-<?php 
+<?php namespace components;
 
 
 class Router
@@ -28,36 +28,12 @@ class Router
        $uri = $this->getURI(); //get request string;
         foreach ($this->routes as $uriPattern => $path){ //check request in routes.php
             if (preg_match("~$uriPattern~", $uri)){
-    //   version 1.0
-                //                $segments = explode('/', $path);
-//
-//                $controllerName = array_shift($segments) . 'Controller';
-//                $controllerName = ucfirst($controllerName); //uppercasefirst;
-//
-//                $actionName = 'action' . ucfirst(array_shift($segments));
-//                $controllerFile = ROOT . '/controllers' . '/' . $controllerName . '.php';
-//
-//                if (file_exists($controllerFile)) {
-//                    include_once("$controllerFile");
-//                }
-//
-//
-//                $controllerObject = new $controllerName;
-//                $result = $controllerObject->$actionName();
-//                if ($result != null){
-//                    break;
-//                }
-//
 
     //version 1.1
 
     //Getting internal route
-
-//                echo '<br>' . 'user input: ' . $uri;
-//                echo '<br>' . 'what(pattern) router should search: ' . $uriPattern;
-//                echo '<br>' . 'what worked: ' . $path;
+                //$uri  user input
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
-//                echo '<br>' . 'what need to create: ' . $internalRoute;
     //Setting controller
                 $segments = explode('/', $internalRoute);
                 $controllerName = array_shift($segments) . 'Controller';
