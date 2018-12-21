@@ -19,5 +19,5 @@ error_reporting(E_ALL);
     $obj->run();
 
 
-$test = new components\Test();
-$test->test();
+//$test = new components\Test();
+//$test->test();
