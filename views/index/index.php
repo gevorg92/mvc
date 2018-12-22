@@ -6,4 +6,5 @@
  * Time: 11:05 PM
  */
 
-echo "actionMain action is working!";
+//echo "actionMain action is working!";
+$obj1 = new components\Connect();

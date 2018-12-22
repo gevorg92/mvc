@@ -6,11 +6,13 @@ class News
     {
         $id = intval($id);
         if ($id){
-            $host = 'localhost';
-            $dbname = 'test';
-            $user  = 'gevorg';
-            $password = 'th7codbo7';
-            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+//            $host = 'localhost';
+//            $dbname = 'test';
+//            $user  = 'gevorg';
+//            $password = 'th7codbo7';
+//            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+            $preconnect = new \components\Connect();
+            $db = $preconnect->makeConnection();
             $newsItem = array();
             $result = $db->query('SELECT `id`, `title`, `date`, `short_content` FROM `news` WHERE `id`=' . $id);
             $row=$result->fetch();
@@ -28,18 +30,20 @@ class News
 
     public static function getNewsList()
     {
-        $host = 'localhost';
-        $dbname = 'test';
-        $user  = 'gevorg';
-        $password = 'th7codbo7';
-
-//        try{
-//            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-//        } catch(PDOException $e){
-//            echo $e->getMessage();
-//        }
-
-        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+//        $host = 'localhost';
+//        $dbname = 'test';
+//        $user  = 'gevorg';
+//        $password = 'th7codbo7';
+//
+////        try{
+////            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+////        } catch(PDOException $e){
+////            echo $e->getMessage();
+////        }
+//
+//        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+        $preconnect = new \components\Connect();
+        $db = $preconnect->makeConnection();
         $newsList = array();
         $result = $db->query('SELECT id, title, date, short_content FROM `news` ORDER BY date DESC LIMIT 10');
 

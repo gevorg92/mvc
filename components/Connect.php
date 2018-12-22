@@ -7,12 +7,24 @@
  */
 
 namespace components;
-
+use PDO;
 
 class Connect
 {
- public function __construct($host, $dbname, $username, $password)
- {
-     return new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
- }
+    private $host, $dbname, $username, $password;
+    public function __construct()
+    {
+        $getDirectory = dirname(__FILE__, 2);
+        $ini = parse_ini_file(($getDirectory . "/config.ini"));
+        $this->host = $ini['DB_HOST'];
+        $this->dbname = $ini['DB_NAME'];
+        $this->username = $ini['DB_USER'];
+        $this->password = $ini['DB_PASSWORD'];
+    }
+
+    public function makeConnection()
+    {
+        $pdo = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
+        return $pdo;
+    }
 }

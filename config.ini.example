@@ -1,0 +1,7 @@
+### Database
+DB_HOST     = host
+DB_NAME     = database
+DB_USER     = user
+DB_PASSWORD = secret
+
+### Email
