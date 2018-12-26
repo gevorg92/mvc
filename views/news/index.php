@@ -18,8 +18,3 @@
 </body>
 </html>
 
-<!--date-->
-<!--title-->
-<!--short_content-->
-
-<!--<p>--><?php //echo $_SERVER['DOCUMENT_ROOT'] . '/css/style.css';?><!--</p>-->

@@ -12,10 +12,6 @@ class Router
         $this->routes = include($routesPath);
 	}
 
-/*
- * Return request string
- * @return string
- */
 	private function getURI()
     {
         if (!empty($_SERVER['REQUEST_URI'])){
@@ -32,21 +28,18 @@ class Router
     //version 1.1
 
     //Getting internal route
-                //$uri  user input
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+
     //Setting controller
                 $segments = explode('/', $internalRoute);
                 $controllerName = array_shift($segments) . 'Controller';
                 $controllerName = ucfirst($controllerName); //uppercasefirst;
 
      //Setting action
-
                 $actionName = 'action' . ucfirst(array_shift($segments));
                 $controllerFile = ROOT . '/controllers' . '/' . $controllerName . '.php';
-//                echo "<br>controller name: $controllerName";
-//                echo "<br>action name: $actionName <br>";
                 $parameters = $segments;
-//                print_r($parameters);
+
     //Calling action
                 if (file_exists($controllerFile)) {
                     include_once("$controllerFile");
@@ -56,14 +49,7 @@ class Router
                 if($result !=0){
                     break;
                 }
-
             }
-
         }
-
-
 	}
-
-
-//ADD CLASS AUTOLOAD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

@@ -14,10 +14,7 @@ error_reporting(E_ALL);
 	//System files connection
 
     define('ROOT', dirname(__FILE__));
-    //require_once(ROOT.'/components/Router.php');
     $obj = new components\Router();
     $obj->run();
 
 
-//$test = new components\Test();
-//$test->test();
