@@ -11,7 +11,10 @@ class MainController
 {
     public function actionIndex()
     {
-        Main::getMainPage();
+        $newsList = array();
+        $newsList = Main::getMainPage();
+        require_once(ROOT.'/views/main/index.php');
+        return true;
 //        echo "actionIndex from MainController";
     }
 }
