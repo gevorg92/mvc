@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 
 <html>
 <head>
-<!--    <meta name="keywords" content="" />-->
-<!--    <meta name="description" content="" />-->
+    <!--    <meta name="keywords" content="" />-->
+    <!--    <meta name="description" content="" />-->
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Latest news</title>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
@@ -37,26 +38,15 @@
         <div id="page-bgtop">
             <div id="page-bgbtm">
                 <div id="content">
-                    <?php foreach ($newsList as $newsItem):?>
-                    <div class="post">
-                        <h2 class="title"><a href="#"><?php echo $newsItem['title'];?></a></h2>
-                        <p class="meta">Posted by <a href="#">Someone</a> on <?php echo $newsItem['date'];?>
-                            &nbsp;&bull;&nbsp; <a href="#" class="permalink">Full article</a></p> <!--<a href="#" class="comments">Comments (64)</a>-->
-                        <div class="entry">
-                            <p><img src="images/sample.png" width="800" height="300" alt="" /></p>
-                            <p><?php echo $newsItem['content'];?></p></br>
+                        <div class="post">
+                            <h2 class="title">ERROR 404:Page not found!</h2>
+                            <p class="meta"><a href="/" class="permalink">Go to main page</a></p>
+                            <div class="entry">
+                                <p><img src="images/sample.png" width="800" height="300" alt="" /></p>
+                            </div>
                         </div>
-<!--                        <div>-->
-<!--                            <p>--><?php //echo $newsItem['title'];?><!--</p>-->
-<!--                            <p>--><?php //echo $newsItem['id'];?><!--</p>-->
-<!--                            <p>--><?php //echo $newsItem['date'];?><!--</p>-->
-<!--                            <p>--><?php //echo $newsItem['content'];?><!--</p></br>-->
-<!---->
-<!---->
-<!--                        </div>-->
-                </div>
-                <div style="clear: both;">&nbsp;</div>
-                        <?php endforeach;?>
+                        <div style="clear: both;">&nbsp;</div>
+
                     <!--TO HERE-->
 
                     <div style="clear: both;">&nbsp;</div>
@@ -119,3 +109,11 @@
 
 <!--<a href="http://www.freecsstemplates.org">FCT</a>.-->
 
+<?php
+/**
+ * Created by *****
+ * User: gevorg
+ * Date: 12/30/18
+ * Time: 4:46 PM
+ */
+echo "Page not found!!!!";
