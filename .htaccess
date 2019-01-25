@@ -5,3 +5,15 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+<Files ~ "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh|gitignore)$">
+Order allow,deny
+Deny from All
+Satisfy All
+</Files>
+
+#<Files ~ ".gitignore$">
+#Order allow,deny
+#Deny from All
+#Satisfy All
+#</Files>

@@ -11,14 +11,19 @@ class News
             $newsItem = array();
             $result = $db->query('SELECT `id`, `title`, `date`, `short_content` FROM `news` WHERE `id`=' . $id);
             $row=$result->fetch();
-            $newsItem['id'] = $row['id'];
-            $newsItem['title'] = $row['title'];
-            $newsItem['date'] = $row['date'];
-            $newsItem['short_content'] = $row['short_content'];
+            if($row['id']=="") {
+                echo "Article does not found!";
+            } else {
+                $newsItem['id'] = $row['id'];
+                $newsItem['title'] = $row['title'];
+                $newsItem['date'] = $row['date'];
+                $newsItem['short_content'] = $row['short_content'];
 
-            return $newsItem;
+                return $newsItem;
+            }
+
         }
-        echo "News:getnewsitembyid";
+//        echo "News:getnewsitembyid";
     }
 
 
