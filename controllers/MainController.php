@@ -15,6 +15,5 @@ class MainController
         $newsList = Main::getMainPage();
         require_once(ROOT.'/views/main/index.php');
         return true;
-//        echo "actionIndex from MainController";
     }
 }

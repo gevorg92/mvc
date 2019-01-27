@@ -21,9 +21,7 @@ class News
 
                 return $newsItem;
             }
-
         }
-//        echo "News:getnewsitembyid";
     }
 
 
